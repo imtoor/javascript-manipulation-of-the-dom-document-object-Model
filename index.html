@@ -8,6 +8,14 @@
             border: 1px solid black;
             display: inline-block;
         }
+
+        #btn1 {
+            background-color: aqua;
+        }
+
+        div {
+            background-color: bisque;
+        }
     </style>
     <script>
         window.addEventListener("load", function() {
@@ -26,6 +34,18 @@
     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Garfield_the_Cat.svg/250px-Garfield_the_Cat.svg.png" id="myImage" alt="">
     <script>
         console.dir(document)
+        var myOutput = document.getElementById("btn1");
+        console.log("getElementById");        
+        console.dir(myOutput);
+        myOutput.innerHTML = "NEW<br>BUTTON";
+
+        var myButtons = document.getElementsByClassName("btn");
+        console.log("getElementsByClassName");
+        console.dir(myButtons[1]);
+
+        var myTags = document.getElementsByTagName("div");
+        console.log("getElementsByTagName");
+        console.dir(myTags);
     </script>
 </body>
 </html>
