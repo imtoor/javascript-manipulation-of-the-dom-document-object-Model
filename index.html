@@ -31,7 +31,7 @@
         <div id="btn3" class="btn">Click me 3</div>
     </div>
     <div id="output">Nothing</div>
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Garfield_the_Cat.svg/250px-Garfield_the_Cat.svg.png" id="myImage" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Garfield_the_Cat.svg/250px-Garfield_the_Cat.svg.png" id="myImage" />
     <script>
         console.dir(document)
         var myOutput = document.getElementById("btn1");
@@ -46,6 +46,47 @@
         var myTags = document.getElementsByTagName("div");
         console.log("getElementsByTagName");
         console.dir(myTags);
+
+        var btn2 = document.getElementById("btn2");
+
+        myOutput.onclick = myFun;
+        
+        myImage = document.getElementById("myImage");
+        myImage.onmouseover = myFun2;
+        myImage.onmouseleave = myFun3;
+
+        function myFun() {
+            output.innerHTML = "Button 1 Clicked!";
+            btn1.style.backgroundColor = 'yellow';
+            btn2.style.backgroundColor = 'bisque';
+        }
+
+        btn2.onclick = function() {
+            output.innerHTML = "Button 2 Clicked!";
+            btn2.style.backgroundColor = 'red';
+            btn1.style.backgroundColor = 'aqua';
+        }
+
+        function myFun2(e) {
+            console.log("Mouse is over me!");
+            console.dir(this);
+            output.innerHTML = 'Mouse X ' + e.x;
+            this.style.border = "3px solid black";
+        }
+
+        function myFun3(e) {
+            console.log("Mouse is leave me!");
+            console.log(this);
+            output.innerHTML = 'Mouse X ' + e.x;
+            this.style.border = '0';
+        }
+
+        myImage.addEventListener("click", function(e) {
+            console.log("I'm clicked!");
+            console.log(e);
+            output.innerHTML = "Mouse Clicked!";
+        });
+
     </script>
 </body>
 </html>
