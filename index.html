@@ -37,8 +37,7 @@
         var myOutput = document.getElementById("btn1");
         console.log("getElementById");        
         console.dir(myOutput);
-        myOutput.innerHTML = "NEW<br>BUTTON";
-
+   
         var myButtons = document.getElementsByClassName("btn");
         console.log("getElementsByClassName");
         console.dir(myButtons[1]);
@@ -86,6 +85,13 @@
             console.log(e);
             output.innerHTML = "Mouse Clicked!";
         });
+
+        var btnEl = document.querySelectorAll(".btn");
+        for(var i = 0; i < btnEl.length;i++) {          
+            btnEl[i].addEventListener("click", function() {
+                output.innerHTML = this.innerHTML + " clicked!!!";
+            },false);
+        }
 
     </script>
 </body>
