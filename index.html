@@ -46,9 +46,9 @@
         console.log("getElementsByTagName");
         console.dir(myTags);
 
-        var btn2 = document.getElementById("btn2");
+        // var btn2 = document.getElementById("btn2");
 
-        myOutput.onclick = myFun;
+        // myOutput.onclick = myFun;
         
         myImage = document.getElementById("myImage");
         myImage.onmouseover = myFun2;
@@ -88,9 +88,15 @@
 
         var btnEl = document.querySelectorAll(".btn");
         for(var i = 0; i < btnEl.length;i++) {          
-            // btnEl[i].addEventListener("click", function() {
-            //     output.innerHTML = this.innerHTML + " clicked!!!";
-            // },false);
+            btnEl[i].addEventListener("click", function() {
+                output.innerHTML = this.innerHTML + " clicked!!!";
+
+                // var newEl = document.createElement("h1");
+                // var newContent = document.createTextNode("Hi, I'm " + this.innerHTML);
+                // newEl.appendChild(newContent);
+                // output.appendChild(newEl);
+
+            },false);
         }
 
         var btnCN = document.getElementById('main').childNodes;
@@ -99,11 +105,18 @@
             if(btnCN[i].nodeName == 'DIV') {
                 // console.log(btnCN[i].nodeName);
                 // console.log(btnCN[i].id);
-                btnCN[i].addEventListener("click", function() {
-                    output.innerHTML = this.outerText + " clicked!";
-                });
+                // btnCN[i].addEventListener("click", function() {
+                //     output.innerHTML = this.outerText + " clicked!";
+                // });
             }
         }
+
+        // document.getElementById("btn1").addEventListener("click", function() {
+        //     var newEl = document.createElement("h1");
+        //     var newContent = document.createTextNode("New H1 Tag");
+        //     newEl.appendChild(newContent);
+        //     output.appendChild(newEl);
+        // });
 
     </script>
 </body>

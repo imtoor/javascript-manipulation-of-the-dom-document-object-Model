@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    
+    <div id="output"></div>
+    <form action="form.php" method="post" id="myForm">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+            <label for="message">Message</label>
+            <input type="text" name="message" id="msg">
+        </div>
+        <div class="button">
+            <button type="submit" id="submit">Send your message</button>
+        </div>
+    </form>
+
+    <script>
+
+        var output = document.getElementById("output");
+        document.getElementById("submit").onclick = checkForm;
+        document.getElementById("myForm").onsubmit = function() {
+            var name = document.getElementById("name");
+            var email = document.getElementById("email");
+            var msg = document.getElementById("msg");
+
+            if(name.value === '') {
+               rMessage = 'Name not filled out'; 
+            }else if(email.value === '') {
+                rMessage = 'Email not filled out';
+            }else if(msg.value === '') {
+                rMessage = 'Message not filled out';                
+            } else {
+                rMessage = checkForm();
+            }
+
+            output.innerHTML = rMessage;
+            return false;
+        }
+
+        function checkForm() {
+            // output.innerHTML = "Clicked!";
+            return "Clicked!";            
+        }
+    </script>
+</body>
+</html>
