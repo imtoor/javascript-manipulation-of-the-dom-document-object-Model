@@ -18,10 +18,10 @@
         }
     </style>
     <script>
-        window.addEventListener("load", function() {
-            console.dir(window);
-            console.dir(document);
-        });
+        // window.addEventListener("load", function() {
+        //     console.dir(window);
+        //     console.dir(document);
+        // });
     </script>
 </head>
 <body>
@@ -88,9 +88,21 @@
 
         var btnEl = document.querySelectorAll(".btn");
         for(var i = 0; i < btnEl.length;i++) {          
-            btnEl[i].addEventListener("click", function() {
-                output.innerHTML = this.innerHTML + " clicked!!!";
-            },false);
+            // btnEl[i].addEventListener("click", function() {
+            //     output.innerHTML = this.innerHTML + " clicked!!!";
+            // },false);
+        }
+
+        var btnCN = document.getElementById('main').childNodes;
+        console.dir(btnCN);
+        for(i = 0;i < btnCN.length;i++) {
+            if(btnCN[i].nodeName == 'DIV') {
+                // console.log(btnCN[i].nodeName);
+                // console.log(btnCN[i].id);
+                btnCN[i].addEventListener("click", function() {
+                    output.innerHTML = this.outerText + " clicked!";
+                });
+            }
         }
 
     </script>
